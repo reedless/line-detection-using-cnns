@@ -1,11 +1,10 @@
-from itertools import izip
 import argparse
 import os 
 from keras.models import load_model
 import skimage.io as io 
 import pdb 
 import numpy as np 
-from sklearn.metrics import precision_recall_fscore_support
+# from sklearn.metrics import precision_recall_fscore_support
 from utils import * 
 from skimage import img_as_float
 #import matplotlib.pyplot as plt
@@ -36,7 +35,7 @@ def Test(opts):
 
     CheckAndCreate(opts.outDir)
 
-    for predY_,fnameX in izip(predY,fnamesX): 
+    for predY_,fnameX in zip(predY,fnamesX): 
         io.imsave(os.path.join(opts.outDir,fnameX), predY_[:,:,0])
     return 
 
